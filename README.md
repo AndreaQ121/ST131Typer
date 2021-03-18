@@ -64,8 +64,6 @@ Within the user-defined output directory, there will be two items:
 * `summary.txt`: A simple tab-separated summary of the results
 * `seqkit_outputs`: A directory containing the output(s) of `seqkit amplicon` in [BED format](http://genome.ucsc.edu/FAQ/FAQformat.html#format1), one file for each assembly file input.  
 
-#### summary.txt
-
 The `summary.txt` file is a tab-separated results summary with one line for each assembly file input.
 
 Column | Description
@@ -103,7 +101,7 @@ Within the target columns, there are five possible entries:
 Character | Meaning
 ---------|---------
 [*NUM*] | Length (bp) of target (sequence between and including the primer pair)
-* [*NUM*] * | Length (bp) of target falls outside +/- 5% of the expected length
+\* [*NUM*] \* | Length (bp) of target falls outside +/- 5% of the expected length
 NA | Not applicable to the typing of the sample (i.e. clade B- and C-associated primer pairs are not relevant for typing of clade A isolates)
 NF | Not found; primer pair was not identified or not identified on the same contig 
 NT | Non-typable; O-type, H-type, *fimH*-type or clade could not be determined. Could be due to missing target or the presence of multiple conflicting targets.

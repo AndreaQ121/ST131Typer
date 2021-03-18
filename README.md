@@ -1,4 +1,8 @@
-# ST131Typer: *In silico* PCR command line tool for typing *Escherichia coli* ST131
+# ST131Typer
+
+*In silico* PCR command line tool for typing *Escherichia coli* ST131
+
+## Description
 
 `ST131Typer` is a simple Bash shell script that utilizes the [SeqKit](https://bioinf.shenwei.me/seqkit/) function [`seqkit amplicon`](https://bioinf.shenwei.me/seqkit/usage/#amplicon) to detect *Escherichia coli* sequence type (ST) 131 and characterize its key subclones from whole genome sequence (WGS) assemblies.  
 

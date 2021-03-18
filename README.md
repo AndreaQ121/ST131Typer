@@ -66,15 +66,15 @@ Within the user-defined output directory, there will be two items:
 
 The `summary.txt` file is a tab-separated results summary with one line for each assembly file input.
 
-Column | Description
----------|---------
+Column | Description | Possible Values
+---------|---------|---------
 Sample | Name of assembly file
-PCR_Profile_Type | Numerical ST131 PCR profile type from [Johnston et al. *in prep*]() [1-15]
-Clade | ST131 clade designation [A, B0, B1, C0, C1, C1-M27, or C2]
-O_type | O antigen [O16 or O25b *rfb* variant]
-H_type | H antigen [*fliC* allele H4 or H5]
+PCR_Profile_Type | Numerical ST131 PCR profile type from [Johnston et al. *in prep*]() | 1-15
+Clade | ST131 clade designation | A, B0, B1, C0, C1, C1-M27, or C2
+O_type | O antigen | O16 or O25b *rfb* variant
+H_type | H antigen | *fliC* allele H4 or H5 
 fimH | *fimH* allele [*fimH22*, *fimH27*, *fimH30*, *fimH35*, or *fimH41*] 
-Description | Descritpion of the ST131 subclone/clade associated with the ST131 PCR profile type
+Description | Description of the ST131 subclone/clade associated with the ST131 PCR profile type
 mdh36 | Length (bp) of *mdh36* target identified [Expected: ~275 bp]
 gyrB47 | Length (bp) of *gyrB47* target identified [Expected: ~138 bp]
 trpA72 | Length (bp) of *trpA72* target identified [Expected: ~487 bp]
@@ -101,10 +101,17 @@ Within the target columns, there are five possible entries:
 Character | Meaning
 ---------|---------
 [*NUM*] | Length (bp) of target (sequence between and including the primer pair)
-\* [*NUM*] \* | Length (bp) of target falls outside +/- 5% of the expected length
+\*[*NUM*]\* | Length (bp) of target falls outside +/- 5% of the expected length
 NA | Not applicable to the typing of the sample (i.e. clade B- and C-associated primer pairs are not relevant for typing of clade A isolates)
 NF | Not found; primer pair was not identified or not identified on the same contig 
 NT | Non-typable; O-type, H-type, *fimH*-type or clade could not be determined. Could be due to missing target or the presence of multiple conflicting targets.
 
 ## Citation
+
+```
+% ./ST131Typer.sh -r
+TBD
+```
+If you use ST131Typer.sh in your work, please cite:  
+
 TBD

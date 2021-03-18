@@ -1,4 +1,5 @@
-# ST131Typer: 
+# ST131Typer
+## *In silico* PCR command line tool for typing *Escherichia coli* ST131
 
 Summary
 
@@ -9,13 +10,11 @@ in assembly contigs...
 
 NOTE: This works as well as your assembly...
 
-## Dependencies
+## Requirements
 
-https://github.com/maehler/seqpoet
-git clone https://github.com/maehler/seqpoet.git
-python setup.py install
+* [SeqKit](https://bioinf.shenwei.me/seqkit/) (>= v0.14.0) plus all dependencies
 
-Seqpoet requires Python >= 2.7, but Python 3 is not supported.
+
 
 ## Installation
 
@@ -28,9 +27,8 @@ Seqpoet requires Python >= 2.7, but Python 3 is not supported.
 ### Command line options
 ### Output
 
-## Citing
-If using....
+## Citation
+TBD
 
 ## Contributors
-
 ELizabeth Miller (millere@umn.edu)

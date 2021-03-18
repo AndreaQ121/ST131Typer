@@ -1,3 +1,5 @@
+[![made-with-bash](https://img.shields.io/badge/Made%20with-Bash-1f425f.svg)](https://www.gnu.org/software/bash/)
+
 # ST131Typer
 
 *In silico* PCR command line tool for typing *Escherichia coli* ST131

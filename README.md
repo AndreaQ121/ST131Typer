@@ -44,7 +44,7 @@ Check that the dependency SeqKit is installed in your path:
 * directory to output the results into
 * directory containing both the `primers.txt` and `profiles.txt` files
 
-### Command line options
+### Command Line Options
 ```
 % ./ST131Typer.sh
 Usage: ST131Typing.sh [OPTIONS] --input [FASTA or DIR] --outdir [DIR] --bin [DIR]
@@ -66,7 +66,7 @@ Within the user-defined output directory, there will be two items:
 
 The `summary.txt` file is a tab-separated results summary with one line for each assembly file input.
 
-Column | Description | PossibleValues
+Column | Description | Possible Values
 ---------|---------|---------
 Sample | Name of assembly file
 PCR_Profile_Type | Numerical ST131 PCR profile type from [Johnston et al. *in prep*]() | 1-15

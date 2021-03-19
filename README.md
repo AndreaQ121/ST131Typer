@@ -13,14 +13,13 @@ This tool is the *in silico* version of the *in vitro* multiplex PCR assays deve
 Specifically, this tool uses primer sequences to target distinctive nucleotide polymorphisms or sequences in *mdh36*, *gyrB47*, *trpA72*, *sbmA*, *plsB*, *nupC*, *rmuC*, *kefC*, *ybbW*, the O16 and O25b *rfb* variants, five key *fimH* alleles (*fimH22*, *fimH27*, *fimH30*, *fimH35*, and *fimH41*), two *fliC* alleles (H4 and H5), a (subclone-specific) fluoroquinolone resistance-associated *parC* allele, and a (subclone-specific) prophage marker. If the target polymorphism or sequence is found in a WGS assembly, the resulting "amplicon" (the sequence that lies between and includes the primer pair), or target, is output.   
 
 
-NOTE: This works as well as your assembly...
 
 ## Requirements
 
 * [SeqKit](https://bioinf.shenwei.me/seqkit/) (>= v0.14.0) plus all dependencies
     * Go to the SeqKit [Installation Page](https://github.com/shenwei356/seqkit#installation) for install options.
-* `primers.txt` file located in the ST131Typer/data directory
-* `profiles.txt` file located in the ST131Typer/data directory
+* `primers.txt` file located in the `data` directory
+* `profiles.txt` file located in the `data` directory
 
 ## Installation
 
@@ -77,30 +76,25 @@ Directory containing multiple FASTA files:
 % ./ST131Typer.sh -i data/assemblies -o example_output -d data
 ```
 
-Assembly FASTA files of strains representing all 15 ST131 PCR profile types described in [Johnston et al. *in prep*]() were downloaded from EnteroBase and can be found in the data/assemblies directory. 
-
+Assembly FASTA files of strains representing all 15 ST131 PCR profile types described in [Johnston et al. *in prep*]() were downloaded from [EnteroBase's Escherichia/Shigella Database](https://enterobase.warwick.ac.uk/species/index/ecoli) and can be found in the `data`/`assemblies` directory. 
 
 PCR Type | Representative Strain | EnteroBase Assembly | Clade | O:H Type | fimH Allele
 ---------|---------|---------|---------|---------|---------
-1 | MVAST020 | ESC_AA8761AA_AS.scaffold | A | O16:H5 | 41
-2 | M670745 | ESC_IA8762AA_AS.scaffold | A | O25b:H5 | 41
-3 | BS488 | ESC_NB9781AA_AS.result | A | O25b:H4 | 41
-4 | H17 | ESC_BA4271AA_AS.scaffold | B0 | O25b:H4 | 27
-5 | JJ1897 | ESC_BA3173AA_AS.scaffold | B0 | O25b:H4 | 22
-6 | JJ1969 | ESC_BA4297AA_AS.scaffold | B1 | O25b:H4 | 22
-7 | G199 | ESC_CA4199AA_AS.scaffold | B1 | O25b:H4 | 30
-8 | ZH071 | ESC_BA5429AA_AS.scaffold | B1 | O25b:H4 | 94
+1 | MVAST020 | ESC_AA8761AA_AS | A | O16:H5 | 41
+2 | M670745 | ESC_IA8762AA_AS | A | O25b:H5 | 41
+3 | BS488 | ESC_NB9781AA_AS | A | O25b:H4 | 41
+4 | H17 | ESC_BA4271AA_AS | B0 | O25b:H4 | 27
+5 | JJ1897 | ESC_BA3173AA_AS | B0 | O25b:H4 | 22
+6 | JJ1969 | ESC_BA4297AA_AS | B1 | O25b:H4 | 22
+7 | G199 | ESC_CA4199AA_AS | B1 | O25b:H4 | 30
+8 | ZH071 | ESC_BA5429AA_AS | B1 | O25b:H4 | 94
 9 | CD306 | ESC_GA4681AA_AS | C0 | O25b:H4 | 30
-10 | BS448 | ESC_NB9779AA_AS.result | C0 | O25b:H4 | 30
-11 | JJ2193 | ESC_BA9567AA_AS.scaffold | C1 | O25b:H4 | 30
-12 | U024 | ESC_CA3641AA_AS.scaffold | C1-M27 | O25b:H4 | 30
-13 | JJ1886 | ESC_GA4805AA_AS_genomic | C2 | O25b:H4 | 30
-14 | U004 | ESC_CA5485AA_AS.scaffold | C2 | O25b:H4 | 35
-15 | JJ2449 | C2 | NT:H4 | 30
-
-
-
-
+10 | BS448 | ESC_NB9779AA_AS | C0 | O25b:H4 | 30
+11 | JJ2193 | ESC_BA9567AA_AS | C1 | O25b:H4 | 30
+12 | U024 | ESC_CA3641AA_AS | C1-M27 | O25b:H4 | 30
+13 | JJ1886 | ESC_GA4805AA_AS | C2 | O25b:H4 | 30
+14 | U004 | ESC_CA5485AA_AS | C2 | O25b:H4 | 35
+15 | JJ2449 | MISSING | C2 | NT:H4 | 30
 
 ### Output
 
@@ -157,6 +151,6 @@ NT | Non-typable; O-type, H-type, *fimH*-type or clade could not be determined. 
 % ./ST131Typer.sh -r
 TBD
 ```
-If you use ST131Typer.sh in your work, please cite:  
+If you use ST131Typer in your work, please cite:  
 
-TBD
+**TBD**

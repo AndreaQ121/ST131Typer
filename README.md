@@ -16,8 +16,8 @@ Specifically, this tool uses primer sequences to target distinctive nucleotide p
 
 ## Requirements
 
-* [SeqKit](https://bioinf.shenwei.me/seqkit/) (>= v0.14.0) plus all dependencies
-    * Go to the SeqKit [Installation Page](https://github.com/shenwei356/seqkit#installation) for install options.
+* [SeqKit](https://bioinf.shenwei.me/seqkit/) (>= v0.14.0)
+    * Go to SeqKit's [Installation Page](https://github.com/shenwei356/seqkit#installation) for install options.
 * `primers.txt` file located in the `data` directory
 * `profiles.txt` file located in the `data` directory
 

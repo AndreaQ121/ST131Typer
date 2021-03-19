@@ -8,7 +8,7 @@
 
 `ST131Typer` is a simple Bash shell script that utilizes the [SeqKit](https://bioinf.shenwei.me/seqkit/) function [`seqkit amplicon`](https://bioinf.shenwei.me/seqkit/usage/#amplicon) to detect *Escherichia coli* sequence type (ST) 131 and characterize its key subclones from whole genome sequence (WGS) assemblies.  
 
-This tool is based on the *in vitro* multiplex PCR assays developed by [Johnston et al. *in prep*](), which allows resolution of 15 distinctive molecular subsets within ST131, including 3 within ST131 clade A (or the H41 subclone), 5 within clade B (or the H22 subclone), and 7 within clade C (or the H30 subclone), including subclones C0 (or H30S: 2 subsets), C1 and C1-M27 (or H30R1: 2 subsets), and C2 (or H30Rx: 3 subsets).  
+This tool is the *in silico* version of the *in vitro* multiplex PCR assays developed by [Johnston et al. *in prep*](). The assays allows resolution of 15 distinctive molecular subsets within ST131, including 3 within ST131 clade A (or the H41 subclone), 5 within clade B (or the H22 subclone), and 7 within clade C (or the H30 subclone), including subclones C0 (or H30S: 2 subsets), C1 and C1-M27 (or H30R1: 2 subsets), and C2 (or H30Rx: 3 subsets).  
 
 Specifically, this tool uses primer sequences to target distinctive nucleotide polymorphisms or sequences in *mdh36*, *gyrB47*, *trpA72*, *sbmA*, *plsB*, *nupC*, *rmuC*, *kefC*, *ybbW*, the O16 and O25b *rfb* variants, five key *fimH* alleles (*fimH22*, *fimH27*, *fimH30*, *fimH35*, and *fimH41*), two *fliC* alleles (H4 and H5), a (subclone-specific) fluoroquinolone resistance-associated *parC* allele, and a (subclone-specific) prophage marker. If the target polymorphism or sequence is found in a WGS assembly, the resulting "amplicon" (the sequence that lies between and includes the primer pair), or target, is output.   
 
@@ -77,26 +77,27 @@ Directory containing multiple FASTA files:
 % ./ST131Typer.sh -i data/assemblies -o example_output -d data
 ```
 
-Assembly FASTA files of strains representing all 15 ST131 PCR profile types described in [Johnston et al. *in prep*]() can befound in the data/assemblies directory. 
+Assembly FASTA files of strains representing all 15 ST131 PCR profile types described in [Johnston et al. *in prep*]() were downloaded from EnteroBase and can be found in the data/assemblies directory. 
 
 
-PCR Type | Representative Strain | Clade | O:H Type | fimH Allele
----------|---------|---------|---------|---------
-1 |
-2 |
-3 |
-4 |
-5 |
-6 |
-7 |
-8 |
-9 |
-10 |
-11 |
-12 |
-13 |
-14 |
-15 |
+PCR Type | Representative Strain | EnteroBase Assembly | Clade | O:H Type | fimH Allele
+---------|---------|---------|---------|---------|---------
+1 | MVAST020 | ESC_AA8761AA_AS.scaffold | A | O16:H5 | 41
+2 | M670745 | ESC_IA8762AA_AS.scaffold | A | O25b:H5 | 41
+3 | BS488 | ESC_NB9781AA_AS.result | A | O25b:H4 | 41
+4 | H17 | ESC_BA4271AA_AS.scaffold | B0 | O25b:H4 | 27
+5 | JJ1897 | ESC_BA3173AA_AS.scaffold | B0 | O25b:H4 | 22
+6 | JJ1969 | ESC_BA4297AA_AS.scaffold | B1 | O25b:H4 | 22
+7 | G199 | ESC_CA4199AA_AS.scaffold | B1 | O25b:H4 | 30
+8 | ZH071 | ESC_BA5429AA_AS.scaffold | B1 | O25b:H4 | 94
+9 | CD306 | ESC_GA4681AA_AS | C0 | O25b:H4 | 30
+10 | BS448 | ESC_NB9779AA_AS.result | C0 | O25b:H4 | 30
+11 | JJ2193 | ESC_BA9567AA_AS.scaffold | C1 | O25b:H4 | 30
+12 | U024 | ESC_CA3641AA_AS.scaffold | C1-M27 | O25b:H4 | 30
+13 | JJ1886 | ESC_GA4805AA_AS_genomic | C2 | O25b:H4 | 30
+14 | U004 | ESC_CA5485AA_AS.scaffold | C2 | O25b:H4 | 35
+15 | JJ2449 | C2 | NT:H4 | 30
+
 
 
 

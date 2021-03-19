@@ -76,7 +76,7 @@ Directory containing multiple FASTA files:
 % ./ST131Typer.sh -i data/assemblies -o example_output -d data
 ```
 
-Assembly FASTA files of strains representing all 15 ST131 PCR profile types described in [Johnston et al. *in prep*]() were downloaded from [EnteroBase's Escherichia/Shigella Database](https://enterobase.warwick.ac.uk/species/index/ecoli) and can be found in the `data`/`assemblies` directory. 
+Assembly FASTA files of strains representing 14 of the 15 ST131 PCR profile types described in [Johnston et al. *in prep*]() were downloaded from [EnteroBase's Escherichia/Shigella Database](https://enterobase.warwick.ac.uk/species/index/ecoli) and can be found in the `data`/`assemblies` directory. 
 
 PCR Type | Representative Strain | EnteroBase Assembly | Clade | O:H Type | fimH Allele
 ---------|---------|---------|---------|---------|---------
@@ -94,7 +94,7 @@ PCR Type | Representative Strain | EnteroBase Assembly | Clade | O:H Type | fimH
 12 | U024 | ESC_CA3641AA_AS | C1-M27 | O25b:H4 | 30
 13 | JJ1886 | ESC_GA4805AA_AS | C2 | O25b:H4 | 30
 14 | U004 | ESC_CA5485AA_AS | C2 | O25b:H4 | 35
-15 | JJ2449 | MISSING | C2 | NT:H4 | 30
+15 | MISSING | | | |
 
 ### Output
 

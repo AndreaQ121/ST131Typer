@@ -69,17 +69,34 @@ Usage: ST131Typing.sh [OPTIONS] --input [FASTA or DIR] --outdir [DIR] --bin [DIR
 
 Single FASTA file:
 ```
+% ./ST131Typer.sh -i MVAST020.fasta -o example_output -d data
+```
+
+Directory containing multiple FASTA files:
+```
 % ./ST131Typer.sh -i data/assemblies -o example_output -d data
 ```
 
-Direcotry of FASTA files:
-```
-% ./ST131Typer.sh -i data/assemblies -o example_output -d data
-```
+Assembly FASTA files of strains representing all 15 ST131 PCR profile types described in [Johnston et al. *in prep*]() can befound in the data/assemblies directory. 
 
-Assembly FASTA files of isolates representing all 15 ST131 PCR profile types described in [Johnston et al. *in prep*]() can befound in the data/assemblies directory. 
 
-PCR type	Representative Strain	Clade	O:H type	fimH Allele	EnteroBase Assembly
+PCR Type | Representative Strain | Clade | O:H Type | fimH Allele
+---------|---------|---------|---------|---------
+1 |
+2 |
+3 |
+4 |
+5 |
+6 |
+7 |
+8 |
+9 |
+10 |
+11 |
+12 |
+13 |
+14 |
+15 |
 
 
 

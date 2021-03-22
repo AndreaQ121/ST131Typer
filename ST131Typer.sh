@@ -14,7 +14,7 @@ VERSION="ST131 Subclone Typing In Silico PCR: version 1.0 (March 2021)"
 CITATION="TBD"
 
 function help(){
-	printf "Usage: ST131Typing.sh [OPTIONS] -i [FASTA or DIR] -o [DIR] -d [DIR]\n"
+	printf "Usage: ST131Typer.sh [OPTIONS] -i [FASTA or DIR] -o [DIR] -d [DIR]\n"
 	printf "\t-h\t\tprint this message\n"
 	printf "\t-v\t\tprint the version\n"
 	printf "\t-c\t\tcheck SeqKit is in path\n"

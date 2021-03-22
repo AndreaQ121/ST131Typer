@@ -1,32 +1,36 @@
 #!/bin/bash
 
-# For a set of contigs in FASTA format:
-# 1) Run seqkit amplicon on file using provided data/primers.txt
-# 2) Compare in silico PCR results to PCR profiles in data/profiles.txt
-# 3) Report results to outdir/summary.txt
+###################### ST131Typer ######################
 
-# Current verison: 3.21 (March 2021)
-VERSION="ST131 Subclone Typing In Silico PCR: version 3.17 (March 2021)"
+# In silico PCR command line tool for typing Escherichia coli ST131
+
+# For a set of contigs in FASTA format:
+# 1) Run seqkit amplicon on file using provided [DATA]/primers.txt
+# 2) Compare in silico PCR results to PCR profiles in [DATA]/profiles.txt
+# 3) Report results to [OUTDIR]/summary.txt
+
+# Current verison: 1.0 (March 2021)
+VERSION="ST131 Subclone Typing In Silico PCR: version 1.0 (March 2021)"
+CITATION="TBD"
 
 function help(){
-	printf "$VERSION\n"
 	printf "Usage: ST131Typing.sh [OPTIONS] -i [FASTA or DIR] -o [DIR] -d [DIR]\n"
-	printf "\t-h\t\tprint this message and exit\n"
-	printf "\t-v\t\tprint the version and exit\n"
+	printf "\t-h\t\tprint this message\n"
+	printf "\t-v\t\tprint the version\n"
 	printf "\t-c\t\tcheck SeqKit is in path\n"
 	printf "\t-i\t\tfasta contigs file or directory containing multiple files\n"
 	printf "\t-o\t\toutput directory\n"
-	printf "\t-d\t\tdirectory containing primers.txt and profiles.txt\n"	
-	printf "Citation: TBD\n"
+	printf "\t-d\t\tdirectory containing primers.txt and profiles.txt\n"
+	printf "\t-r\t\tprint citation\n"
 }
 
 function checkSeqKit(){
     PACKAGE=$(command -v seqkit)
     if [ -z "$PACKAGE" ]
     then
-        echo "Error: Missing package SeqKit.\n" && exit
+        echo -e "\nError: Missing package SeqKit.\n" && exit
         else
-        echo SeqKit: $PACKAGE
+        echo -e "\nSeqKit: $PACKAGE"
     fi
 }
 
@@ -51,7 +55,7 @@ OUTDIR=''
 INPUT=''
 DATA=''
 
-while getopts 'vhci:o:b:' flag; do
+while getopts 'vhci:o:d:r' flag; do
   case "${flag}" in
     v) echo "$VERSION"
        exit 0 ;;
@@ -62,6 +66,7 @@ while getopts 'vhci:o:b:' flag; do
     i) INPUT=$OPTARG ;;
     o) OUTDIR=$OPTARG ;;
     d) DATA=$OPTARG ;;
+    r) echo "$CITATION" ;;
   esac
 done
 
@@ -75,9 +80,11 @@ echo "This is $VERSION"
 
 printf "\nChecking dependencies..."
 
-#### Check that output directory exists ####
+#### Check that output directory exists,
+# create if it does not ####
 if [ ! -d $OUTDIR ]; then
-    printf "\nError: Output directory does not exist.\n" && exit
+    mkdir $OUTDIR
+    printf "\nOutput directory: %s" $OUTDIR
     else
     printf "\nOutput directory: %s" $OUTDIR
 fi
@@ -127,7 +134,7 @@ elif [[ -d $INPUT ]]; then
     printf "\n%s samples will be processed:" $SAMPLENUM && ls -1 $INPUT
 fi
 
-printf "\nStarting analysis..."
+printf "\nStarting analysis...\n"
 
 #### Run seqkit ####
 
@@ -164,7 +171,7 @@ then
 elif ! grep -Eq "mdh36" found.tmp && grep -Eq "gyrB47" found.tmp
 then
     MDH36=NF
-    GYRB47=$(checkSize "gyrB47" 124 137) 
+    GYRB47=$(checkSize "gyrB47" 131 145) 
     NOTE="Cannot confirm ST131"
     printf "gyrB47 was found in %s, but mdh36 was not. Cannot confirm ST131. No further analysis was done.\n" $SAMPLE
     printf "$SAMPLE\tNA\tNA\tNA\tNA\tNA\t$NOTE\t$MDH36\t$GYRB47\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\n" >> ${OUTDIR}/summary.tmp
@@ -200,13 +207,13 @@ then
 fi
 
 MDH36=$(checkSize "mdh36" 261 289)
-GYRB47=$(checkSize "gyrB47" 124 137) 
+GYRB47=$(checkSize "gyrB47" 131 145) 
 TRPA72=$(checkSize "trpA72" 463 511) 
 PRO=$(checkSize "prophage" 781 863)
 RFB_O16=$(checkSize "rfb_O16" 703 777)
 RFB_O25B=$(checkSize "rfb_O25b" 551 609)
 SBMA=$(checkSize "sbmA" 63 69)
-PARC=$(checkSize "parC_E84V" 111 123)
+PARC=$(checkSize "parC_E84V" 102 112)
 FLIC_H4=$(checkSize "fliC_H4" 190 210)
 FLIC_H5=$(checkSize "fliC_H5" 583 645)
 FIMH30=$(checkSize "fimH30" 336 372)
@@ -296,7 +303,7 @@ mv $OUTDIR/*.out $OUTDIR/seqkit_outputs
 
 if [ -f $OUTDIR/summary.tmp ]
 then
-    cat <(echo -e "Sample\tPCR_Profile_Type\tClade\tO_type\tH_type\tfimH\tDescription\tmdh36\tgyrB47\ttrpA72\trfb_O16\trfb_O25b\tfliC_H5\tfliC_H4\tfimH22\tfimH27\tfimH30\tfimH35\tfimH41\tplsB\tnupC\tkefC\trmuC\tprophage\tsbmA\tybbW\tparC_E84V") $OUTDIR/summary.tmp > $OUTDIR/summary.txt
+    cat <(echo -e "Sample\tPCR_Profile_Type\tClade\tO_type\tH_type\tfimH\tDescription\tmdh36\tgyrB47\ttrpA72\trfb_O16\trfb_O25b\tfliC_H4\tfliC_H5\tfimH22\tfimH27\tfimH30\tfimH35\tfimH41\tplsB\tnupC\tkefC\trmuC\tprophage\tsbmA\tybbW\tparC_E84V") $OUTDIR/summary.tmp > $OUTDIR/summary.txt
     rm -f $OUTDIR/summary.tmp *.tmp 
     printf "\nAnalysis complete. See summary.txt in %s for results.\n" $OUTDIR
     exit 0
@@ -305,3 +312,5 @@ else
     printf "\nError: Missing summary output file."    
     exit
 fi
+
+

@@ -55,7 +55,7 @@ Check that the dependency SeqKit is installed in your path:
 ### Command Line Options
 ```
 % ./ST131Typer.sh
-Usage: ST131Typing.sh [OPTIONS] --input [FASTA or DIR] --outdir [DIR] --bin [DIR]
+Usage: ST131Typer.sh [OPTIONS] --input [FASTA or DIR] --outdir [DIR] --bin [DIR]
 	-h		print this message
 	-v		print the version
 	-c		check SeqKit is in path

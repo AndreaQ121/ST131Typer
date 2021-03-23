@@ -13,8 +13,6 @@ This tool is the *in silico* version of the *in vitro* multiplex PCR assays deve
 
 Specifically, this tool uses primer sequences to target distinctive nucleotide polymorphisms or sequences in *mdh36*, *gyrB47*, *trpA72*, *sbmA*, *plsB*, *nupC*, *rmuC*, *kefC*, *ybbW*, the O16 and O25b *rfb* variants, five key *fimH* alleles (*fimH22*, *fimH27*, *fimH30*, *fimH35*, and *fimH41*), two *fliC* alleles (H4 and H5), a (subclone-specific) fluoroquinolone resistance-associated *parC* allele, and a (subclone-specific) prophage marker. If the target polymorphism or sequence is found in a WGS assembly, the resulting "amplicon" (the sequence that lies between and includes the primer pair), or target, is output.   
 
-
-
 ## Requirements
 
 * [SeqKit](https://bioinf.shenwei.me/seqkit/) (>= v0.14.0)
@@ -24,10 +22,15 @@ Specifically, this tool uses primer sequences to target distinctive nucleotide p
 
 ## Installation
 
-This will install the latest version directly from GitHub.
+This will install the latest version directly from GitHub:
 
 ```
 git clone https://github.com/JohnsonSingerLab/ST131Typer.git/
+```
+
+Change permissions to make `ST131Typer.sh` executable:
+```
+chmod +x ST131Typer/ST131Typer.sh
 ```
 
 ### Check Installation

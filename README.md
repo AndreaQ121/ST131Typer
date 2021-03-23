@@ -95,7 +95,7 @@ PCR Type | Representative Strain | EnteroBase Assembly | Clade | O:H Type | fimH
 12 | U024 | ESC_CA3641AA_AS | C1-M27 | O25b:H4 | 30
 13 | JJ1886 | ESC_GA4805AA_AS | C2 | O25b:H4 | 30
 14 | U004 | ESC_CA5485AA_AS | C2 | O25b:H4 | 35
-15 | MISSING | | | |
+15 | Not Available | | | |
 
 ### Output
 

@@ -25,7 +25,7 @@ Specifically, this tool uses primer sequences to target distinctive nucleotide p
 This will install the latest version directly from GitHub:
 
 ```
-git clone https://github.com/JohnsonSingerLab/ST131Typer.git/
+git clone https://github.com/JohnsonSingerLab/ST131Typer.git
 ```
 
 Change permissions to make `ST131Typer.sh` executable:

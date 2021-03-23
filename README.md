@@ -69,7 +69,7 @@ Usage: ST131Typer.sh [OPTIONS] --input [FASTA or DIR] --outdir [DIR] --bin [DIR]
 
 Single FASTA file:
 ```
-% ./ST131Typer.sh -i MVAST020.fasta -o example_output -d data
+% ./ST131Typer.sh -i contigs.fasta -o example_output -d data
 ```
 
 Directory containing multiple FASTA files:

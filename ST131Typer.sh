@@ -9,8 +9,8 @@
 # 2) Compare in silico PCR results to PCR profiles in [DATA]/profiles.txt
 # 3) Report results to [OUTDIR]/summary.txt
 
-# Current verison: 1.0 (March 2021)
-VERSION="ST131 Subclone Typing In Silico PCR: version 1.0 (March 2021)"
+# Current verison: 1.0.0 (March 2021)
+VERSION="ST131 Subclone Typing In Silico PCR: version 1.0.0 (March 2021)"
 CITATION="TBD"
 
 function help(){

@@ -131,7 +131,7 @@ elif [[ -d $INPUT ]]; then
     SAMPLENUM=$(ls $INPUT | wc -l)
     ls -1 $INPUT > samples.tmp
     INPUTDIR=$(echo $INPUT)
-    printf "\n%s samples will be processed:" $SAMPLENUM && ls -1 $INPUT
+    printf "\n%s samples will be processed:\n" $SAMPLENUM && ls -1 $INPUT
 fi
 
 printf "\nStarting analysis...\n"

@@ -30,7 +30,8 @@ git clone https://github.com/JohnsonSingerLab/ST131Typer.git/
 
 Change permissions to make `ST131Typer.sh` executable:
 ```
-chmod +x ST131Typer/ST131Typer.sh
+cd ST131Typer
+chmod +x ST131Typer.sh
 ```
 
 ### Check Installation

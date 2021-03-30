@@ -263,7 +263,7 @@ else
 # fimH allele
     if [ $(grep -c "fimH22\|fimH27\|fimH30\|fimH35\|fimH41" found.tmp) -eq 1 ]
     then
-        fimH=$(grep --only-matching "fimH22\|fimH27\|fimH30\|fimH35\|fimH41" found.tmp)
+        fimH=$(grep --only-matching "fimH22\|fimH27\|fimH30\|fimH35\|fimH41" found.tmp | sed 's/fimH//')
     else
         fimH="NT"
     fi

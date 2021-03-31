@@ -15,9 +15,9 @@ This tool is the *in silico* version of the *in vitro* multiplex PCR assays deve
 
 Specifically, this tool uses primer sequences to target distinctive nucleotide polymorphisms or sequences in *mdh36*, *gyrB47*, *trpA72*, *sbmA*, *plsB*, *nupC*, *rmuC*, *kefC*, *ybbW*, the O16 and O25b *rfb* variants, five key *fimH* alleles (*fimH22*, *fimH27*, *fimH30*, *fimH35*, and *fimH41*), two *fliC* alleles (H4 and H5), a (subclone-specific) fluoroquinolone resistance-associated *parC* allele, and a (subclone-specific) prophage marker. If the target polymorphism or sequence is found in a WGS assembly, the resulting "amplicon" (the sequence that lies between and includes the primer pair), or target, is output.   
 
-### A word of caution...
+### :warning: A word of caution...
 
-:warning: **ST131Typer is only as accurate as the quality of the input sequences.** Less complete assemblies increase the likelihood that a target sequence is fragmented or incomplete and therefore not identified by ST131Typer. Be aware that:
+**ST131Typer is only as accurate as the quality of the input sequences.** Less complete assemblies increase the likelihood that a target sequence is fragmented or incomplete and therefore not identified by ST131Typer. Be aware that:
 
 * If a target spans two assembly contigs/scaffolds (i.e. the forward and reverse primers are on different contigs/scaffolds), ST131Typer will not consider the target present.
 * If only one primer of a pair is identified, ST131Typer will not consider the target present.

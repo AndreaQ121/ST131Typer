@@ -123,7 +123,7 @@ The `summary.txt` file is a tab-separated results summary with one line for each
 Column | Description | Possible Values
 ---------|---------|---------
 Sample | Name of assembly file
-PCR_Profile_Type | Numerical ST131 PCR profile type from [Johnston et al. *in prep*]() | 1-15
+PCR_Profile_Type | Numerical ST131 PCR profile type from [Johnston et al. *in prep*]() | 1-15, Unknown, non-ST131
 Clade | ST131 clade designation | A, B0, B1, C0, C1, C1-M27, or C2
 O_type | O antigen | O16 or O25b 
 H_type | H antigen | H4 or H5 

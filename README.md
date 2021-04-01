@@ -93,23 +93,23 @@ Directory containing multiple FASTA files:
 
 Assembly FASTA files of strains representing 14 of the 15 ST131 PCR profile types described in [Johnston et al. *in prep*]() were downloaded from [EnteroBase's Escherichia/Shigella Database](https://enterobase.warwick.ac.uk/species/index/ecoli) and can be found in the `data`/`assemblies` directory. 
 
-PCR Type | Representative Strain | EnteroBase Assembly | Clade | O:H Type | fimH Allele
+PCR Type | Representative Strain | Clade | O:H Type | fimH Allele
 ---------|---------|---------|---------|---------|---------
-1 | MVAST020 | ESC_AA8761AA_AS | A | O16:H5 | *H*41
-2 | M670745 | ESC_IA8762AA_AS | A | O25b:H5 | *H*41
-3 | BS488 | ESC_NB9781AA_AS | A | O25b:H4 | *H*41
-4 | H17 | ESC_BA4271AA_AS | B0 | O25b:H4 | *H*27
-5 | JJ1897 | ESC_BA3173AA_AS | B0 | O25b:H4 | *H*22
-6 | JJ1969 | ESC_BA4297AA_AS | B1 | O25b:H4 | *H*22
-7 | G199 | ESC_CA4199AA_AS | B1 | O25b:H4 | *H*30
-8 | ZH071 | ESC_BA5429AA_AS | B1 | O25b:H4 | *H*94
-9 | CD306 | ESC_GA4681AA_AS | C0 | O25b:H4 | *H*30
-10 | BS448 | ESC_NB9779AA_AS | C0 | O25b:H4 | *H*30
-11 | JJ2193 | ESC_BA9567AA_AS | C1 | O25b:H4 | *H*30
-12 | U024 | ESC_CA3641AA_AS | C1-M27 | O25b:H4 | *H*30
-13 | JJ1886 | ESC_GA4805AA_AS | C2 | O25b:H4 | *H*30
-14 | U004 | ESC_CA5485AA_AS | C2 | O25b:H4 | *H*35
-15 | Not Available | | | |
+1 | MVAST020 | A | O16:H5 | *H*41
+2 | M670745 | A | O25b:H5 | *H*41
+3 | BS488 | A | O25b:H4 | *H*41
+4 | H17 | B0 | O25b:H4 | *H*27
+5 | JJ1897 | B0 | O25b:H4 | *H*22
+6 | JJ1969 | B1 | O25b:H4 | *H*22
+7 | G199 | B1 | O25b:H4 | *H*30
+8 | ZH071 | B1 | O25b:H4 | *H*94
+9 | CD306 | C0 | O25b:H4 | *H*30
+10 | BS448 | C0 | O25b:H4 | *H*30
+11 | JJ2193 | C1 | O25b:H4 | *H*30
+12 | U024 | C1-M27 | O25b:H4 | *H*30
+13 | JJ1886 | C2 | O25b:H4 | *H*30
+14 | U004 | C2 | O25b:H4 | *H*35
+15 | Not Available | | |
 
 ### Output
 

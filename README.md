@@ -93,23 +93,23 @@ Directory containing multiple FASTA files:
 
 Assembly FASTA files of strains representing 14 of the 15 ST131 PCR profile types described in [Johnston et al. *in prep*]() were downloaded from [EnteroBase's Escherichia/Shigella Database](https://enterobase.warwick.ac.uk/species/index/ecoli) and can be found in the `data`/`assemblies` directory. 
 
-PCR Type | Representative Strain | Clade | O:H Type | *fimH* Allele
----------|---------|---------|---------|---------
-1 | MVAST020 | A | O16:H5 | *H*41
-2 | M670745 | A | O25b:H5 | *H*41
-3 | BS488 | A | O25b:H4 | *H*41
-4 | H17 | B0 | O25b:H4 | *H*27
-5 | JJ1897 | B0 | O25b:H4 | *H*22
-6 | JJ1969 | B1 | O25b:H4 | *H*22
-7 | G199 | B1 | O25b:H4 | *H*30
-8 | ZH071 | B1 | O25b:H4 | *H*94
-9 | CD306 | C0 | O25b:H4 | *H*30
-10 | BS448 | C0 | O25b:H4 | *H*30
-11 | JJ2193 | C1 | O25b:H4 | *H*30
-12 | U024 | C1-M27 | O25b:H4 | *H*30
-13 | JJ1886 | C2 | O25b:H4 | *H*30
-14 | U004 | C2 | O25b:H4 | *H*35
-15 | Not Available | | |
+PCR Type | Representative Strain | Clade | O:H Type | *fimH* Allele | Description
+---------|---------|---------|---------|---------|---------
+1 | MVAST020 | A | O16:H5 | *H*41 | *H*41/A (O16:H4 variant)
+2 | M670745 | A | O25b:H5 | *H*41 | *H*41/A (O25b:H5 variant)
+3 | BS488 | A | O25b:H4 | *H*41 | *H*41/A (O25b:H4 variant)
+4 | H17 | B0 | O25b:H4 | *H*27 | *H*27/B0
+5 | JJ1897 | B0 | O25b:H4 | *H*22 | *H*22/B0
+6 | JJ1969 | B1 | O25b:H4 | *H*22 | *H*22/B1
+7 | G199 | B1 | O25b:H4 | *H*30 | *H*30/B1
+8 | ZH071 | B1 | O25b:H4 | *H*94 | *H*94(non-*H*22)/B1
+9 | CD306 | C0 | O25b:H4 | *H*30 | *H*30S/C0
+10 | BS448 | C0 | O25b:H4 | *H*30 | *H*30S/C0 (*parC* E84V and FQ-R)
+11 | JJ2193 | C1 | O25b:H4 | *H*30 | *H*30R1 non-C1-M27/C1
+12 | U024 | C1-M27 | O25b:H4 | *H*30 | *H*30R1 C1-M27/C1-M27
+13 | JJ1886 | C2 | O25b:H4 | *H*30 | *H*30Rx/C2
+14 | U004 | C2 | O25b:H4 | *H*35 | *H*30Rx (*fimH35*)/C2
+15 | Not Available | | | | *H*30Rx/C2 (non-O-typable)
 
 ### Output
 

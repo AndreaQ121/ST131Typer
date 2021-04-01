@@ -30,7 +30,7 @@ function checkSeqKit(){
     then
         echo -e "\nError: Missing package SeqKit.\n" && exit
         else
-        echo -e "\nSeqKit: $PACKAGE"
+        echo -e "\nSeqKit: $PACKAGE\n"
     fi
 }
 
@@ -66,7 +66,7 @@ while getopts 'vhci:o:d:r' flag; do
     i) INPUT=$OPTARG ;;
     o) OUTDIR=$OPTARG ;;
     d) DATA=$OPTARG ;;
-    r) echo "$CITATION" ;;
+    r) echo -e "\n$CITATION\n" ;;
   esac
 done
 

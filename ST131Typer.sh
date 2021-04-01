@@ -165,7 +165,7 @@ then
     GYRB47=NF
     NOTE="Cannot confirm ST131"
     printf "mdh36 and gyrB47 not found in %s. Cannot confirm ST131. No further analysis was done.\n" $SAMPLE
-    printf "$SAMPLE\tNA\tNA\tNA\tNA\tNA\t$NOTE\t$MDH36\t$GYRB47\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\n" >> ${OUTDIR}/summary.tmp
+    printf "$SAMPLE\tnon-ST131\tNA\tNA\tNA\tNA\t$NOTE\t$MDH36\t$GYRB47\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\n" >> ${OUTDIR}/summary.tmp
     continue
 
 elif ! grep -Eq "mdh36" found.tmp && grep -Eq "gyrB47" found.tmp
@@ -174,7 +174,7 @@ then
     GYRB47=$(checkSize "gyrB47" 131 145) 
     NOTE="Cannot confirm ST131"
     printf "gyrB47 was found in %s, but mdh36 was not. Cannot confirm ST131. No further analysis was done.\n" $SAMPLE
-    printf "$SAMPLE\tNA\tNA\tNA\tNA\tNA\t$NOTE\t$MDH36\t$GYRB47\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\n" >> ${OUTDIR}/summary.tmp
+    printf "$SAMPLE\tnon-ST131\tNA\tNA\tNA\tNA\t$NOTE\t$MDH36\t$GYRB47\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\n" >> ${OUTDIR}/summary.tmp
     continue
 
 elif grep -Eq "mdh36" found.tmp && ! grep -Eq "gyrB47" found.tmp
@@ -183,7 +183,7 @@ then
     GYRB47=NF
     NOTE="Cannot confirm ST131"
     printf "mdh36 was found in %s, but gyrB47 was not. Cannot confirm ST131. No further analysis was done.\n" $SAMPLE
-    printf "$SAMPLE\tNA\tNA\tNA\tNA\tNA\t$NOTE\t$MDH36\t$GYRB47\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\n" >> ${OUTDIR}/summary.tmp
+    printf "$SAMPLE\tnon-ST131\tNA\tNA\tNA\tNA\t$NOTE\t$MDH36\t$GYRB47\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\n" >> ${OUTDIR}/summary.tmp
     continue
 
 elif grep -Eq "trpA72" found.tmp
@@ -238,7 +238,7 @@ then
     continue
 else
     printf "Warning: %s does not match a defined ST131 PCR profile type. Data review is recommended.\n" $SAMPLE
-    TYPE="NA"
+    TYPE="Unknown"
     NOTE="Non-match profile type. Data review is recommended."
 # O-type
     if grep -Eq "rfb_O16" found.tmp && ! grep -Eq "rfb_O25b" found.tmp

@@ -15,13 +15,13 @@ This tool is the *in silico* version of the *in vitro* multiplex PCR assays deve
 
 Specifically, this tool uses primer sequences to target distinctive nucleotide polymorphisms or sequences in *mdh36*, *gyrB47*, *trpA72*, *sbmA*, *plsB*, *nupC*, *rmuC*, *kefC*, *ybbW*, the O16 and O25b *rfb* variants, five key *fimH* alleles (*fimH22*, *fimH27*, *fimH30*, *fimH35*, and *fimH41*), two *fliC* alleles (H4 and H5), a (subclone-specific) fluoroquinolone resistance-associated *parC* allele, and a (subclone-specific) prophage marker. If the target polymorphism or sequence is found in a WGS assembly, the resulting "amplicon" (the sequence that lies between and includes the primer pair), or target, is output.   
 
-### :warning: A word of caution...
+### A word of caution...
 
-**ST131Typer is only as accurate as the quality of the input sequences.** Less complete assemblies increase the likelihood that a target sequence is fragmented or incomplete and therefore not identified by ST131Typer. Be aware that:
+:warning: **ST131Typer is only as accurate as the quality of the input sequences.** Less complete assemblies increase the likelihood that a target sequence is fragmented or incomplete and therefore not identified by ST131Typer. Be aware that ST131Typer will not consider a target present if:
 
-* If a target spans two assembly contigs/scaffolds (i.e. the forward and reverse primers are on different contigs/scaffolds), ST131Typer will not consider the target present.
-* If only one primer of a pair is identified, ST131Typer will not consider the target present.
-* If the primer sequences do not match 100% with the target, ST131Typer will not consider the target present.
+* The target spans two assembly contigs/scaffolds (i.e. the forward and reverse primers are on different contigs/scaffolds).
+* Only one primer of a pair is identified.
+* The primer sequences do not match 100% with the target.
 
 ## Requirements
 
@@ -156,7 +156,7 @@ Character | Meaning
 ---------|---------
 [*NUM*] | Length (bp) of target (sequence between and including the primer pair)
 \*[*NUM*]\* | Length (bp) of target falls outside +/- 5% of the expected length
-NA | Not applicable to the typing of the sample (i.e. clade B- and C-associated primer pairs are not relevant for typing of clade A isolates)
+NA | Not applicable to the typing of the sample (i.e. non-ST131 strain; clade B- and C-associated primer pairs are not relevant for typing of clade A isolates)
 NF | Not found; primer pair was not identified or not identified on the same contig 
 NT | Non-typable; O-type, H-type, *fimH*-type or clade could not be determined. Could be due to missing target or the presence of multiple conflicting targets.
 

@@ -30,7 +30,7 @@ Specifically, this tool uses primer sequences to target distinctive nucleotide p
 * (subclone-specific) fluoroquinolone resistance-associated *parC* allele
 * (subclone-specific) prophage marker
 
-If the target polymorphism or sequence is found in a WGS assembly, the resulting target sequence (the sequence that lies between and includes the primer pair), or "amplicon", is outputted.   
+If the target polymorphism or sequence is found in a WGS assembly, the resulting target sequence (the sequence that lies between and includes the primer pair), or "amplicon", is output.   
 
 ### :warning: A word of caution...
 

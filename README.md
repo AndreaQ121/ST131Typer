@@ -146,7 +146,7 @@ O_type | O antigen | O16 or O25b
 H_type | H antigen | H4 or H5 
 fimH | *fimH* allele | *fimH22*, *fimH27*, *fimH30*, *fimH35*, or *fimH41*
 Description | Description of the ST131 subclone/clade associated with the ST131 PCR profile type
-mdh36 | Length (bp) of *mdh36* target identified | ~275 bp (expected)
+mdh36 | Length (bp) of *mdh36* target identified | ~275 bp <sup>/*</sup>
 gyrB47 | Length (bp) of *gyrB47* target identified | ~138 bp (expected)
 trpA72 | Length (bp) of *trpA72* target identified | ~487 bp (expected)
 rfb_O16 | Length (bp) of *rfb* O16 allele target identified | ~732 bp (expected)
@@ -174,7 +174,7 @@ Character | Meaning
 [*NUM*] | Length (bp) of target (sequence between and including the primer pair)
 \*[*NUM*]\* | Length (bp) of target falls outside +/- 5% of the expected length
 NA | Not applicable to the typing of the sample (i.e. non-ST131 strain; clade B- and C-associated primer pairs are not relevant for typing of clade A isolates)
-NF | Not found; primer pair was not identified or not identified on the same contig 
+NF | Not found; primer pair was not identified or was not identified on the same contig 
 NT | Non-typable; O-type, H-type, *fimH*-type or clade could not be determined. Could be due to missing target or the presence of multiple conflicting targets.
 
 ## Citation

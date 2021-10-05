@@ -146,26 +146,26 @@ O_type | O antigen | O16 or O25b
 H_type | H antigen | H4 or H5 
 fimH | *fimH* allele | *fimH22*, *fimH27*, *fimH30*, *fimH35*, or *fimH41*
 Description | Description of the ST131 subclone/clade associated with the ST131 PCR profile type
-mdh36 | Length (bp) of *mdh36* target identified | ~275 bp <sup>*</sup>
-gyrB47 | Length (bp) of *gyrB47* target identified | ~138 bp <sup>*</sup>
-trpA72 | Length (bp) of *trpA72* target identified | ~487 bp <sup>*</sup>
-rfb_O16 | Length (bp) of *rfb* O16 allele target identified | ~732 bp <sup>*</sup>
-rfb_O25b | Length (bp) of *rfb* O25b allele target identified | ~557 bp <sup>*</sup>
-fliC_H4 | Length (bp) of *fliC* H4 allele target identified | ~199 bp <sup>*</sup>
-fliC_H5 | Length (bp) of *fliC* H4 allele target identified | ~614 bp <sup>*</sup>
-fimH22 | Length (bp) of *fimH22* allele complex target identified | ~279 bp <sup>*</sup>
-fimH27 | Length (bp) of *fimH27* allele complex target identified | ~405 bp <sup>*</sup>
-fimH30 | Length (bp) of *fimH30* allele complex target identified | ~350 bp <sup>*</sup>
-fimH35 | Length (bp) of *fimH35* allele complex target identified | ~500 bp <sup>*</sup>
-fimH41 | Length (bp) of *fimH41* allele complex target identified | ~92 bp <sup>*</sup>
-plsB | Length (bp) of *plsB* target identified | ~628 bp <sup>*</sup>
-nupC | Length (bp) of *nupC* target identified | ~498 bp <sup>*</sup>
-kefC | Length (bp) of *kefC* target identified | ~238 bp <sup>*</sup>
-rmuC | Length (bp) of *rmuC* target identified | ~353 bp <sup>*</sup>
-prophage | Length (bp) of the prophage marker target identified | ~822 bp <sup>*</sup>
-sbmA | Length (bp) of *sbmA* target identified | ~64 bp <sup>*</sup>
-ybbW | Length (bp) of *ybbW* target identified | ~194 bp <sup>*</sup>
-parC_E84V | Length (bp) of *parC* E84V target identified | ~107 bp <sup>*</sup>
+mdh36 | Length (bp) of *mdh36* target identified | ~275 <sup>*</sup>
+gyrB47 | Length (bp) of *gyrB47* target identified | ~138 <sup>*</sup>
+trpA72 | Length (bp) of *trpA72* target identified | ~487 <sup>*</sup>
+rfb_O16 | Length (bp) of *rfb* O16 allele target identified | ~732 <sup>*</sup>
+rfb_O25b | Length (bp) of *rfb* O25b allele target identified | ~557 <sup>*</sup>
+fliC_H4 | Length (bp) of *fliC* H4 allele target identified | ~199 <sup>*</sup>
+fliC_H5 | Length (bp) of *fliC* H4 allele target identified | ~614 <sup>*</sup>
+fimH22 | Length (bp) of *fimH22* allele complex target identified | ~279 <sup>*</sup>
+fimH27 | Length (bp) of *fimH27* allele complex target identified | ~405 <sup>*</sup>
+fimH30 | Length (bp) of *fimH30* allele complex target identified | ~350 <sup>*</sup>
+fimH35 | Length (bp) of *fimH35* allele complex target identified | ~500 <sup>*</sup>
+fimH41 | Length (bp) of *fimH41* allele complex target identified | ~92 <sup>*</sup>
+plsB | Length (bp) of *plsB* target identified | ~628 <sup>*</sup>
+nupC | Length (bp) of *nupC* target identified | ~498 <sup>*</sup>
+kefC | Length (bp) of *kefC* target identified | ~238 <sup>*</sup>
+rmuC | Length (bp) of *rmuC* target identified | ~353 <sup>*</sup>
+prophage | Length (bp) of the prophage marker target identified | ~822 <sup>*</sup>
+sbmA | Length (bp) of *sbmA* target identified | ~64 <sup>*</sup>
+ybbW | Length (bp) of *ybbW* target identified | ~194 <sup>*</sup>
+parC_E84V | Length (bp) of *parC* E84V target identified | ~107 <sup>*</sup>
 
 <sup>*</sup> Within the target columns, there are five possible entries:  
 

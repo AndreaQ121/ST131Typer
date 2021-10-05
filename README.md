@@ -13,7 +13,12 @@
 
 This tool is the *in silico* version of the *in vitro* multiplex PCR assays developed by [Johnston et al. *in prep*](). The assays allows resolution of 15 distinctive molecular subsets within ST131, including 3 within ST131 clade A (or the *H*41 subclone), 5 within clade B (or the *H*22 subclone), and 7 within clade C (or the *H*30 subclone), including subclones C0 (or *H*30S: 2 subsets), C1 and C1-M27 (or *H*30R1: 2 subsets), and C2 (or *H*30Rx: 3 subsets).  
 
-Specifically, this tool uses primer sequences to target distinctive nucleotide polymorphisms or sequences in *mdh36*, *gyrB47*, *trpA72*, *sbmA*, *plsB*, *nupC*, *rmuC*, *kefC*, *ybbW*, the O16 and O25b *rfb* variants, five key *fimH* alleles (*fimH22*, *fimH27*, *fimH30*, *fimH35*, and *fimH41*), two *fliC* alleles (H4 and H5), a (subclone-specific) fluoroquinolone resistance-associated *parC* allele, and a (subclone-specific) prophage marker. If the target polymorphism or sequence is found in a WGS assembly, the resulting "amplicon" (the sequence that lies between and includes the primer pair), or target, is output.   
+Specifically, this tool uses primer sequences to target distinctive nucleotide polymorphisms or sequences in:
+
+* *mdh36*
+* *gyrB47*
+* *trpA72*
+* *sbmA*, *plsB*, *nupC*, *rmuC*, *kefC*, *ybbW*, the O16 and O25b *rfb* variants, five key *fimH* alleles (*fimH22*, *fimH27*, *fimH30*, *fimH35*, and *fimH41*), two *fliC* alleles (H4 and H5), a (subclone-specific) fluoroquinolone resistance-associated *parC* allele, and a (subclone-specific) prophage marker. If the target polymorphism or sequence is found in a WGS assembly, the resulting "amplicon" (the sequence that lies between and includes the primer pair), or target, is output.   
 
 ### :warning: A word of caution...
 

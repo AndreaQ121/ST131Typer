@@ -11,7 +11,7 @@
 
 `ST131Typer` is a simple Bash shell script that utilizes the [SeqKit](https://bioinf.shenwei.me/seqkit/) function [`seqkit amplicon`](https://bioinf.shenwei.me/seqkit/usage/#amplicon) to detect *Escherichia coli* sequence type (ST) 131 and characterize its key subclones from whole genome sequence (WGS) assemblies.  
 
-This tool is the *in silico* version of the *in vitro* multiplex PCR assays developed by [Johnston et al. *in prep*](). The assays allows resolution of 15 distinctive molecular subsets within ST131, including 3 within ST131 clade A (or the *H*41 subclone), 5 within clade B (or the *H*22 subclone), and 7 within clade C (or the *H*30 subclone), including subclones C0 (or *H*30S: 2 subsets), C1 and C1-M27 (or *H*30R1: 2 subsets), and C2 (or *H*30Rx: 3 subsets).  
+This tool is the *in silico* version of the *in vitro* multiplex PCR assays developed by [Johnston et al. *in prep*](). The lab assay allows resolution of 15 distinctive molecular subsets within ST131, including 3 within ST131 clade A (i.e. the *H*41 subclone), 5 within clade B (i.e. the *H*22 subclone), and 7 within clade C (i.e. the *H*30 subclone), including subclones C0 (i.e. *H*30S: 2 subsets), C1 and C1-M27 (i.e. *H*30R1: 2 subsets), and C2 (i.e. *H*30Rx: 3 subsets).  
 
 Specifically, this tool uses primer sequences to target distinctive nucleotide polymorphisms or sequences in:
 

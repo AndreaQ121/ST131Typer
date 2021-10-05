@@ -69,7 +69,7 @@ Ensure the desired ST131Typer version is installed:
 ./ST131Typer.sh -v
 ```
 
-Check that the dependency SeqKit is installed in your path:
+Check that the dependency, SeqKit, is installed in your path:
 
 ```
 ./ST131Typer.sh -c

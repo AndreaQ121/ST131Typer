@@ -18,7 +18,19 @@ Specifically, this tool uses primer sequences to target distinctive nucleotide p
 * *mdh36*
 * *gyrB47*
 * *trpA72*
-* *sbmA*, *plsB*, *nupC*, *rmuC*, *kefC*, *ybbW*, the O16 and O25b *rfb* variants, five key *fimH* alleles (*fimH22*, *fimH27*, *fimH30*, *fimH35*, and *fimH41*), two *fliC* alleles (H4 and H5), a (subclone-specific) fluoroquinolone resistance-associated *parC* allele, and a (subclone-specific) prophage marker. If the target polymorphism or sequence is found in a WGS assembly, the resulting "amplicon" (the sequence that lies between and includes the primer pair), or target, is output.   
+* *sbmA*
+* *plsB*
+* *nupC*
+* *rmuC*
+* *kefC*
+* *ybbW*
+* O16 and O25b *rfb* variants
+* five key *fimH* alleles (*fimH22*, *fimH27*, *fimH30*, *fimH35*, and *fimH41*)
+* two *fliC* alleles (H4 and H5)
+* (subclone-specific) fluoroquinolone resistance-associated *parC* allele
+* (subclone-specific) prophage marker
+
+If the target polymorphism or sequence is found in a WGS assembly, the resulting target sequence (the sequence that lies between and includes the primer pair), or "amplicon", is outputted.   
 
 ### :warning: A word of caution...
 

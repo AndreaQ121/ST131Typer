@@ -44,8 +44,8 @@ If the target polymorphism or sequence is found in a WGS assembly, the resulting
 
 * [SeqKit](https://bioinf.shenwei.me/seqkit/) (>= v0.14.0)
     * Go to SeqKit's [Installation Page](https://github.com/shenwei356/seqkit#installation) for install options.
-* `primers.txt` file located in the `data` directory
-* `profiles.txt` file located in the `data` directory
+* `primers.txt` file located in the [data directory](https://github.com/JohnsonSingerLab/ST131Typer/tree/main/data)
+* `profiles.txt` file located in the [data directory](https://github.com/JohnsonSingerLab/ST131Typer/tree/main/data)
 
 ## Installation
 

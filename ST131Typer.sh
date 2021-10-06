@@ -149,17 +149,17 @@ else
     cat ${INPUTDIR}/${SAMPLE} | seqkit amplicon --quiet --seq-type dna --max-mismatch 0 --primer-file $DATA/primers.txt --line-width 0 --bed > $OUTDIR/${SAMPLE}.out
     if [ $? -eq 0 ]
     then
-        awk -F "\t" '{ print $4 }' $OUTDIR/${SAMPLE}.out | sed 's/$/\t1/' > found.tmp
-        awk -F "\t" '{ print $1 }' $DATA/primers.txt | grep -v -f <(awk -F "\t" '{ print $1 }' found.tmp) - | sed 's/$/\t0/' > missing.tmp
+        awk -F "\t" '{ print $4 }' $OUTDIR/${SAMPLE}.out | sed 's/$/\t1/' > $OUTDIR/found.tmp
+        awk -F "\t" '{ print $1 }' $DATA/primers.txt | grep -v -f <(awk -F "\t" '{ print $1 }' $OUTDIR/found.tmp) - | sed 's/$/\t0/' > $OUTDIR/missing.tmp
         error=0
     else
-        printf "Error: Error when running seqkit amplicon.\n"
+        printf "Error: Issue when running seqkit amplicon.\n"
         error=1
         continue
     fi
 fi
 
-if ! grep -Eq "mdh36" found.tmp && ! grep -Eq "gyrB47" found.tmp
+if ! grep -Eq "mdh36" $OUTDIR/found.tmp && ! grep -Eq "gyrB47" $OUTDIR/found.tmp
 then
     MDH36=NF
     GYRB47=NF
@@ -168,7 +168,7 @@ then
     printf "$SAMPLE\tnon-ST131\tNA\tNA\tNA\tNA\t$NOTE\t$MDH36\t$GYRB47\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\n" >> ${OUTDIR}/summary.tmp
     continue
 
-elif ! grep -Eq "mdh36" found.tmp && grep -Eq "gyrB47" found.tmp
+elif ! grep -Eq "mdh36" $OUTDIR/found.tmp && grep -Eq "gyrB47" $OUTDIR/found.tmp
 then
     MDH36=NF
     GYRB47=$(checkSize "gyrB47" 131 145) 
@@ -177,7 +177,7 @@ then
     printf "$SAMPLE\tnon-ST131\tNA\tNA\tNA\tNA\t$NOTE\t$MDH36\t$GYRB47\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\n" >> ${OUTDIR}/summary.tmp
     continue
 
-elif grep -Eq "mdh36" found.tmp && ! grep -Eq "gyrB47" found.tmp
+elif grep -Eq "mdh36" $OUTDIR/found.tmp && ! grep -Eq "gyrB47" $OUTDIR/found.tmp
 then
     MDH36=$(checkSize "mdh36" 261 289)
     GYRB47=NF
@@ -186,24 +186,24 @@ then
     printf "$SAMPLE\tnon-ST131\tNA\tNA\tNA\tNA\t$NOTE\t$MDH36\t$GYRB47\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\n" >> ${OUTDIR}/summary.tmp
     continue
 
-elif grep -Eq "trpA72" found.tmp
+elif grep -Eq "trpA72" $OUTDIR/found.tmp
 then 
     PLSB=NA
     NUPC=NA
     RMUC=NA
     KEFC=NA
     YBBW=NA
-    cat found.tmp missing.tmp > all.tmp
-    awk -F "\t" '{ if ($1 == "plsB"||$1 == "nupC"||$1 == "rmuC"||$1 == "kefC"||$1 == "ybbW") $2="x";}1' OFS="\t" all.tmp > tmp && mv tmp all.tmp
+    cat $OUTDIR/found.tmp $OUTDIR/missing.tmp > $OUTDIR/all.tmp
+    awk -F "\t" '{ if ($1 == "plsB"||$1 == "nupC"||$1 == "rmuC"||$1 == "kefC"||$1 == "ybbW") $2="x";}1' OFS="\t" $OUTDIR/all.tmp > $OUTDIR/tmp && mv $OUTDIR/tmp $OUTDIR/all.tmp
 
-elif ! grep -Eq "trpA72" found.tmp
+elif ! grep -Eq "trpA72" $OUTDIR/found.tmp
 then
     PLSB=$(checkSize "plsB" 588 650)
     NUPC=$(checkSize "nupC" 475 525)
     RMUC=$(checkSize "rmuC" 329 363)
     KEFC=$(checkSize "kefC" 231 255)
     YBBW=$(checkSize "ybbW" 184 204)
-    cat found.tmp missing.tmp > all.tmp
+    cat $OUTDIR/found.tmp $OUTDIR/missing.tmp > $OUTDIR/all.tmp
 fi
 
 MDH36=$(checkSize "mdh36" 261 289)
@@ -222,17 +222,18 @@ FIMH27=$(checkSize "fimH27" 385 425)
 FIMH22=$(checkSize "fimH22" 266 294)
 FIMH41=$(checkSize "fimH41" 90 100)
 
-cat all.tmp | sort -k1 | awk -F "\t" '{ print $2 }' | tr '\n' '-' | sed 's/-$/\n/' > pcr.tmp 
-grep -f pcr.tmp $DATA/profiles.txt > profile.tmp
+# 
+cat $OUTDIR/all.tmp | sort -k1 | awk -F "\t" '{ print $2 }' | tr '\n' '-' | sed 's/-$/\n/' > $OUTDIR/pcr.tmp 
+grep -f $OUTDIR/pcr.tmp $DATA/profiles.txt > $OUTDIR/profile.tmp
 
-if [ -s profile.tmp ]
+if [ -s $OUTDIR/profile.tmp ]
 then
-    TYPE=$(awk -F "\t" '{ print $2 }' profile.tmp)
-    NOTE=$(awk -F "\t" '{ print $7 }' profile.tmp)
-    CLADE=$(awk -F "\t" '{ print $3 }' profile.tmp)
-    O=$(awk -F "\t" '{ print $4 }' profile.tmp)
-    H=$(awk -F "\t" '{ print $5 }' profile.tmp)
-    fimH=$(awk -F "\t" '{ print $6 }' profile.tmp)
+    TYPE=$(awk -F "\t" '{ print $2 }' $OUTDIR/profile.tmp)
+    NOTE=$(awk -F "\t" '{ print $7 }' $OUTDIR/profile.tmp)
+    CLADE=$(awk -F "\t" '{ print $3 }' $OUTDIR/profile.tmp)
+    O=$(awk -F "\t" '{ print $4 }' $OUTDIR/profile.tmp)
+    H=$(awk -F "\t" '{ print $5 }' $OUTDIR/profile.tmp)
+    fimH=$(awk -F "\t" '{ print $6 }' $OUTDIR/profile.tmp)
     printf "ST131 PCR profile type: %s\n" $TYPE
     printf "$SAMPLE\t$TYPE\t$CLADE\t$O\t$H\t$fimH\t$NOTE\t$MDH36\t$GYRB47\t$TRPA72\t$RFB_O16\t$RFB_O25B\t$FLIC_H4\t$FLIC_H5\t$FIMH22\t$FIMH27\t$FIMH30\t$FIMH35\t$FIMH41\t$PLSB\t$NUPC\t$KEFC\t$RMUC\t$PRO\t$SBMA\t$YBBW\t$PARC\n" >> $OUTDIR/summary.tmp
     continue
@@ -241,52 +242,65 @@ else
     TYPE="Unknown"
     NOTE="Non-match profile type. Data review is recommended."
 # O-type
-    if grep -Eq "rfb_O16" found.tmp && ! grep -Eq "rfb_O25b" found.tmp
+    if grep -Eq "rfb_O16" found.tmp && ! grep -Eq "rfb_O25b" $OUTDIR/found.tmp
     then
         O="O16"
-    elif ! grep -Eq "rfb_O16" found.tmp && grep -Eq "rfb_O25b" found.tmp
+    elif ! grep -Eq "rfb_O16" found.tmp && grep -Eq "rfb_O25b" $OUTDIR/found.tmp
     then
         O="O25b"
-    else
+    elif ! grep -Eq "rfb_O16" found.tmp && ! grep -Eq "rfb_O25b" $OUTDIR/found.tmp
+    then
         O="NT"
+    elif grep -Eq "rfb_O16" found.tmp && grep -Eq "rfb_O25b" $OUTDIR/found.tmp
+    then
+        O="NT; both O16 and O25b found"
     fi
 # H-type
-    if grep -Eq "fliC_H4" found.tmp && ! grep -Eq "fliC_H5" found.tmp
+    if grep -Eq "fliC_H4" found.tmp && ! grep -Eq "fliC_H5" $OUTDIR/found.tmp
     then
         H="H4"
-    elif ! grep -Eq "fliC_H4" found.tmp && grep -Eq "fliC_H5" found.tmp
+    elif ! grep -Eq "fliC_H4" found.tmp && grep -Eq "fliC_H5" $OUTDIR/found.tmp
     then
         H="H5"
-    else
+    elif ! grep -Eq "fliC_H4" found.tmp && ! grep -Eq "fliC_H5" $OUTDIR/found.tmp
+    then
         H="NT"
+    elif grep -Eq "fliC_H4" found.tmp && grep -Eq "fliC_H5" $OUTDIR/found.tmp
+    then
+        H="NT; both H4 and H5 found"
     fi
 # fimH allele
-    if [ $(grep -c "fimH22\|fimH27\|fimH30\|fimH35\|fimH41" found.tmp) -eq 1 ]
+    if [ $(grep -c "fimH22\|fimH27\|fimH30\|fimH35\|fimH41" $OUTDIR/found.tmp) -eq 1 ]
     then
-        fimH=$(grep --only-matching "fimH22\|fimH27\|fimH30\|fimH35\|fimH41" found.tmp | sed 's/fimH//')
-    else
-        fimH="NT"
+        fimH=$(grep --only-matching "fimH22\|fimH27\|fimH30\|fimH35\|fimH41" $OUTDIR/found.tmp)
+    elif [ $(grep -c "fimH22\|fimH27\|fimH30\|fimH35\|fimH41" $OUTDIR/found.tmp) -eq 0 ]
+    then
+        fimH="NT; no fimH allele found"
+    elif [ $(grep -c "fimH22\|fimH27\|fimH30\|fimH35\|fimH41" $OUTDIR/found.tmp) -gt 1 ]
+    then
+        fimHs=$(grep "fimH22\|fimH27\|fimH30\|fimH35\|fimH41" $OUTDIR/found.tmp | awk -F "\t" '{ print $1 }' ORS=" ")
+        fimH="NT; multiple fimH alleles found: ${fimHs}"
     fi
 # Clade
     if grep -Eq "trpA72" found.tmp
     then
         CLADE="A"
-    elif [ $(grep -c "plsB\|nupC" found.tmp) -eq 2 ] && [ $(grep -c "rmuC\|kefC\|ybbW" found.tmp) -eq 0 ]
+    elif [ $(grep -c "plsB\|nupC" found.tmp) -eq 2 ] && [ $(grep -c "rmuC\|kefC\|ybbW" $OUTDIR/found.tmp) -eq 0 ]
     then
         CLADE="B1"
-    elif grep -Eq "nupC" found.tmp && ! grep -Eq "plsB" found.tmp && [ $(grep -c "rmuC\|kefC\|ybbW" found.tmp) -eq 0 ]
+    elif grep -Eq "nupC" found.tmp && ! grep -Eq "plsB" found.tmp && [ $(grep -c "rmuC\|kefC\|ybbW" $OUTDIR/found.tmp) -eq 0 ]
     then
         CLADE="B0"
-    elif grep -Eq "kefC" found.tmp && ! grep -Eq "rmuC" found.tmp && ! grep -Eq "ybbW" found.tmp && ! grep -Eq "prophage" found.tmp
+    elif grep -Eq "kefC" found.tmp && ! grep -Eq "rmuC" found.tmp && ! grep -Eq "ybbW" found.tmp && ! grep -Eq "prophage" $OUTDIR/found.tmp
     then
         CLADE="C0"
-    elif grep -Eq "kefC" found.tmp && grep -Eq "rmuC" found.tmp && ! grep -Eq "ybbW" found.tmp && ! grep -Eq "prophage" found.tmp
+    elif grep -Eq "kefC" found.tmp && grep -Eq "rmuC" found.tmp && ! grep -Eq "ybbW" found.tmp && ! grep -Eq "prophage" $OUTDIR/found.tmp
     then
         CLADE="C1"
-    elif grep -Eq "kefC" found.tmp && grep -Eq "rmuC" found.tmp && ! grep -Eq "ybbW" found.tmp && grep -Eq "prophage" found.tmp
+    elif grep -Eq "kefC" found.tmp && grep -Eq "rmuC" found.tmp && ! grep -Eq "ybbW" found.tmp && grep -Eq "prophage" $OUTDIR/found.tmp
     then
         CLADE="C1-M27"
-    elif grep -Eq "kefC" found.tmp && ! grep -Eq "rmuC" found.tmp && grep -Eq "ybbW" found.tmp && ! grep -Eq "prophage" found.tmp
+    elif grep -Eq "kefC" found.tmp && ! grep -Eq "rmuC" found.tmp && grep -Eq "ybbW" found.tmp && ! grep -Eq "prophage" $OUTDIR/found.tmp
     then
         CLADE="C2"
     else
@@ -308,7 +322,7 @@ then
     printf "\nAnalysis complete. See summary.txt in %s for results.\n" $OUTDIR
     exit 0
 else
-    rm -f *.tmp
+    rm -f $OUTDIR/*.tmp
     printf "\nError: Missing summary output file."    
     exit
 fi

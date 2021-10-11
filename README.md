@@ -126,7 +126,7 @@ PCR Type | Representative Strain | Clade | O:H Type | *fimH* Allele | Descriptio
 12 | U024 | C1-M27 | O25b:H4 | *H*30 | *H*30R1 C1-M27 / C1-M27
 13 | JJ1886 | C2 | O25b:H4 | *H*30 | *H*30Rx / C2
 14 | U004 | C2 | O25b:H4 | *H*35 | *H*30Rx (*fimH35*) / C2
-15 | Not Available | | | | *H*30Rx / C2 (non-O-typable)
+15 | Not Available | C2 | ONT:H4 | *H*30 | *H*30Rx / C2 (non-O-typable)
 
 ### Output
 

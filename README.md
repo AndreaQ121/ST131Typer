@@ -40,7 +40,7 @@ If the target polymorphism or sequence is found in a WGS assembly, the resulting
 * Only one primer of a pair is identified.
 * The primer sequences do not match 100% with the target.
 
-BLAST-based tools, such as those on the [Center for Genomic Epidemiology (CGE) website](https://www.genomicepidemiology.org/), utilize curated databases of complete allele sequences and do not require a 100% match between the input assembly and the allele sequences. SInce these tools are simply reporting the top BLAST hit(s) in terms of percent identity, they are less affected by incomplete genome assemblies or allelic variation in the primer regions than ST131Typer. The benefit of using ST131Typer over publically available BLAST-based tools is that it provides typing resolution beyond just serotype and fimH type.
+BLAST-based tools, such as those on the [Center for Genomic Epidemiology (CGE) website](https://www.genomicepidemiology.org/), utilize curated databases of complete allele sequences and do not require a 100% match between the input assembly and the allele sequences. Since these tools are simply reporting the top BLAST hit(s), they are less affected by incomplete genome assemblies or allelic variation in primer regions than `ST131Typer`. The benefit of using `ST131Typer` over publically available BLAST-based tools is that it provides typing resolution beyond just serotype and *fimH* type.
 
 ## Requirements
 

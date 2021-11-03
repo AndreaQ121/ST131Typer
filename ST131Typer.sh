@@ -9,8 +9,8 @@
 # 2) Compare in silico PCR results to PCR profiles in [DATA]/profiles.txt
 # 3) Report results to [OUTDIR]/summary.txt
 
-# Current verison: 1.0.0 (March 2021)
-VERSION="ST131 Subclone Typing In Silico PCR: version 1.0.0 (March 2021)"
+# Current verison: 1.0.0 (November 2021)
+VERSION="ST131 Subclone Typing In Silico PCR: version 1.0.0 (November 2021)"
 CITATION="TBD"
 
 function help(){
@@ -242,30 +242,30 @@ else
     TYPE="Unknown"
     NOTE="Non-match profile type. Data review is recommended."
 # O-type
-    if grep -Eq "rfb_O16" found.tmp && ! grep -Eq "rfb_O25b" $OUTDIR/found.tmp
+    if grep -Eq "rfb_O16" $OUTDIR/found.tmp && ! grep -Eq "rfb_O25b" $OUTDIR/found.tmp
     then
         O="O16"
-    elif ! grep -Eq "rfb_O16" found.tmp && grep -Eq "rfb_O25b" $OUTDIR/found.tmp
+    elif ! grep -Eq "rfb_O16" $OUTDIR/found.tmp && grep -Eq "rfb_O25b" $OUTDIR/found.tmp
     then
         O="O25b"
-    elif ! grep -Eq "rfb_O16" found.tmp && ! grep -Eq "rfb_O25b" $OUTDIR/found.tmp
+    elif ! grep -Eq "rfb_O16" $OUTDIR/found.tmp && ! grep -Eq "rfb_O25b" $OUTDIR/found.tmp
     then
         O="NT"
-    elif grep -Eq "rfb_O16" found.tmp && grep -Eq "rfb_O25b" $OUTDIR/found.tmp
+    elif grep -Eq "rfb_O16" $OUTDIR/found.tmp && grep -Eq "rfb_O25b" $OUTDIR/found.tmp
     then
         O="NT; both O16 and O25b found"
     fi
 # H-type
-    if grep -Eq "fliC_H4" found.tmp && ! grep -Eq "fliC_H5" $OUTDIR/found.tmp
+    if grep -Eq "fliC_H4" $OUTDIR/found.tmp && ! grep -Eq "fliC_H5" $OUTDIR/found.tmp
     then
         H="H4"
-    elif ! grep -Eq "fliC_H4" found.tmp && grep -Eq "fliC_H5" $OUTDIR/found.tmp
+    elif ! grep -Eq "fliC_H4" $OUTDIR/found.tmp && grep -Eq "fliC_H5" $OUTDIR/found.tmp
     then
         H="H5"
-    elif ! grep -Eq "fliC_H4" found.tmp && ! grep -Eq "fliC_H5" $OUTDIR/found.tmp
+    elif ! grep -Eq "fliC_H4" $OUTDIR/found.tmp && ! grep -Eq "fliC_H5" $OUTDIR/found.tmp
     then
         H="NT"
-    elif grep -Eq "fliC_H4" found.tmp && grep -Eq "fliC_H5" $OUTDIR/found.tmp
+    elif grep -Eq "fliC_H4" $OUTDIR/found.tmp && grep -Eq "fliC_H5" $OUTDIR/found.tmp
     then
         H="NT; both H4 and H5 found"
     fi
@@ -282,25 +282,25 @@ else
         fimH="NT; multiple fimH alleles found: ${fimHs}"
     fi
 # Clade
-    if grep -Eq "trpA72" found.tmp
+    if grep -Eq "trpA72" $OUTDIR/found.tmp
     then
         CLADE="A"
-    elif [ $(grep -c "plsB\|nupC" found.tmp) -eq 2 ] && [ $(grep -c "rmuC\|kefC\|ybbW" $OUTDIR/found.tmp) -eq 0 ]
+    elif [ $(grep -c "plsB\|nupC" $OUTDIR/found.tmp) -eq 2 ] && [ $(grep -c "rmuC\|kefC\|ybbW" $OUTDIR/found.tmp) -eq 0 ]
     then
         CLADE="B1"
-    elif grep -Eq "nupC" found.tmp && ! grep -Eq "plsB" found.tmp && [ $(grep -c "rmuC\|kefC\|ybbW" $OUTDIR/found.tmp) -eq 0 ]
+    elif grep -Eq "nupC" $OUTDIR/found.tmp && ! grep -Eq "plsB" $OUTDIR/found.tmp && [ $(grep -c "rmuC\|kefC\|ybbW" $OUTDIR/found.tmp) -eq 0 ]
     then
         CLADE="B0"
-    elif grep -Eq "kefC" found.tmp && ! grep -Eq "rmuC" found.tmp && ! grep -Eq "ybbW" found.tmp && ! grep -Eq "prophage" $OUTDIR/found.tmp
+    elif grep -Eq "kefC" $OUTDIR/found.tmp && ! grep -Eq "rmuC" $OUTDIR/found.tmp && ! grep -Eq "ybbW" $OUTDIR/found.tmp && ! grep -Eq "prophage" $OUTDIR/found.tmp
     then
         CLADE="C0"
-    elif grep -Eq "kefC" found.tmp && grep -Eq "rmuC" found.tmp && ! grep -Eq "ybbW" found.tmp && ! grep -Eq "prophage" $OUTDIR/found.tmp
+    elif grep -Eq "kefC" $OUTDIR/found.tmp && grep -Eq "rmuC" $OUTDIR/found.tmp && ! grep -Eq "ybbW" $OUTDIR/found.tmp && ! grep -Eq "prophage" $OUTDIR/found.tmp
     then
         CLADE="C1"
-    elif grep -Eq "kefC" found.tmp && grep -Eq "rmuC" found.tmp && ! grep -Eq "ybbW" found.tmp && grep -Eq "prophage" $OUTDIR/found.tmp
+    elif grep -Eq "kefC" $OUTDIR/found.tmp && grep -Eq "rmuC" $OUTDIR/found.tmp && ! grep -Eq "ybbW" $OUTDIR/found.tmp && grep -Eq "prophage" $OUTDIR/found.tmp
     then
         CLADE="C1-M27"
-    elif grep -Eq "kefC" found.tmp && ! grep -Eq "rmuC" found.tmp && grep -Eq "ybbW" found.tmp && ! grep -Eq "prophage" $OUTDIR/found.tmp
+    elif grep -Eq "kefC" $OUTDIR/found.tmp && ! grep -Eq "rmuC" $OUTDIR/found.tmp && grep -Eq "ybbW" $OUTDIR/found.tmp && ! grep -Eq "prophage" $OUTDIR/found.tmp
     then
         CLADE="C2"
     else
@@ -326,5 +326,3 @@ else
     printf "\nError: Missing summary output file."    
     exit
 fi
-
-

@@ -9,7 +9,7 @@
 
 ## Description
 
-`ST131Typer` is a simple Bash shell script that utilizes the [SeqKit](https://bioinf.shenwei.me/seqkit/) function [`seqkit amplicon`](https://bioinf.shenwei.me/seqkit/usage/#amplicon) to detect *Escherichia coli* sequence type (ST) 131 and characterize its key subclones from whole genome sequence (WGS) assemblies.  
+`ST131Typer` is a simple Bash shell script that utilizes the [SeqKit](https://bioinf.shenwei.me/seqkit/) function [`seqkit amplicon`](https://bioinf.shenwei.me/seqkit/usage/#amplicon) to detect *Escherichia coli* sequence type (ST) 131 and characterize its key subclones from preassembled partial or complete genome assemblies.  
 
 This tool is the *in silico* version of the *in vitro* multiplex PCR assays developed by [Johnston et al. *in prep*](). The lab assay allows resolution of 15 distinctive molecular subsets within ST131, including 3 within ST131 clade A (i.e. the *H*41 subclone), 5 within clade B (i.e. the *H*22 subclone), and 7 within clade C (i.e. the *H*30 subclone), including subclones C0 (i.e. *H*30S: 2 subsets), C1 and C1-M27 (i.e. *H*30R1: 2 subsets), and C2 (i.e. *H*30Rx: 3 subsets).  
 
@@ -39,6 +39,8 @@ If the target polymorphism or sequence is found in a WGS assembly, the resulting
 * The target spans two assembly contigs/scaffolds (i.e. the forward and reverse primers are on different contigs/scaffolds).
 * Only one primer of a pair is identified.
 * The primer sequences do not match 100% with the target.
+
+BLAST-based tools, such as those on the [Center for Genomic Epidemiology (CGE) website](https://www.genomicepidemiology.org/), utilize curated databases of complete allele sequences and do not require a 100% match between the input assembly and the allele sequences. SInce these tools are simply reporting the top BLAST hit(s) in terms of percent identity, they are less affected by incomplete genome assemblies or allelic variation in the primer regions than ST131Typer. The benefit of using ST131Typer over publically available BLAST-based tools is that it provides typing resolution beyond just serotype and fimH type.
 
 ## Requirements
 

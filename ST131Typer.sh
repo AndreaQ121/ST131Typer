@@ -5,22 +5,21 @@
 # In silico PCR command line tool for typing Escherichia coli ST131
 
 # For a set of contigs in FASTA format:
-# 1) Run seqkit amplicon on file using provided [DATA]/primers.txt
-# 2) Compare in silico PCR results to PCR profiles in [DATA]/profiles.txt
+# 1) Run seqkit amplicon on file using provided data/primers.txt
+# 2) Compare in silico PCR results to PCR profiles in data/profiles.txt
 # 3) Report results to [OUTDIR]/summary.txt
 
-# Current verison: 1.0.0 (November 2021)
-VERSION="ST131 Subclone Typing In Silico PCR: version 1.0.0 (November 2021)"
+# Current verison: 1.0.0 (December 2021)
+VERSION="ST131 Subclone Typing In Silico PCR: version 1.0.0 (December 2021)"
 CITATION="TBD"
 
 function help(){
-	printf "Usage: ST131Typer.sh [OPTIONS] -i [FASTA or DIR] -o [DIR] -d [DIR]\n"
+	printf "Usage: ST131Typer.sh [OPTIONS] -i [FASTA or DIR] -o [DIR]\n"
 	printf "\t-h\t\tprint this message\n"
 	printf "\t-v\t\tprint the version\n"
 	printf "\t-c\t\tcheck SeqKit is in path\n"
-	printf "\t-i\t\tfasta contigs file or directory containing multiple files\n"
+	printf "\t-i\t\tFASTA contigs file or directory containing multiple FASTA files\n"
 	printf "\t-o\t\toutput directory\n"
-	printf "\t-d\t\tdirectory containing primers.txt and profiles.txt\n"
 	printf "\t-r\t\tprint citation\n"
 }
 
@@ -53,9 +52,8 @@ function checkSize(){
 
 OUTDIR=''
 INPUT=''
-DATA=''
 
-while getopts 'vhci:o:d:r' flag; do
+while getopts 'vhci:o:r' flag; do
   case "${flag}" in
     v) echo "$VERSION"
        exit 0 ;;
@@ -65,7 +63,6 @@ while getopts 'vhci:o:d:r' flag; do
        exit 0 ;;
     i) INPUT=$OPTARG ;;
     o) OUTDIR=$OPTARG ;;
-    d) DATA=$OPTARG ;;
     r) echo -e "\n$CITATION\n" ;;
   esac
 done
@@ -89,25 +86,21 @@ if [ ! -d $OUTDIR ]; then
     printf "\nOutput directory: %s" $OUTDIR
 fi
 
-#### Check that data directory exists ####
-if [ ! -d $DATA ]; then
-    printf "\nError: Data directory does not exist.\n" && exit
-    else
-    printf "\nData directory: %s" $DATA
-fi
+#### Check that primers.txt and profiles.txt files exist ####
+SCRIPT_PATH=$(dirname `which $0`)
 
 #### Check that primer file exists ####
-if [ ! -f $DATA/primers.txt ]; then
+if [ ! -f ${SCRIPT_PATH}/data/primers.txt ]; then
     printf "\nError: Primer file (primers.txt) does not exist.\n" && exit
     else
-    printf "\nPrimer file: %s/primers.txt" $DATA
+    printf "\nPrimer file: %s/primers.txt" ${SCRIPT_PATH}/data
 fi
 
 #### Check that profile file exists ####
-if [ ! -f $DATA/profiles.txt ]; then
+if [ ! -f ${SCRIPT_PATH}/data/profiles.txt ]; then
     printf "\nError: PCR profile file (profiles.txt) does not exist.\n" && exit
     else
-    printf "\nProfile file: %s/profiles.txt" $DATA
+    printf "\nProfile file: %s/profiles.txt" ${SCRIPT_PATH}/data
 fi
 
 #### Check that input file/directory exists ####
@@ -146,11 +139,11 @@ then
     continue
 else
     printf "\nStarting %s...\n" $SAMPLE
-    cat ${INPUTDIR}/${SAMPLE} | seqkit amplicon --quiet --seq-type dna --max-mismatch 0 --primer-file $DATA/primers.txt --line-width 0 --bed > $OUTDIR/${SAMPLE}.out
+    cat ${INPUTDIR}/${SAMPLE} | seqkit amplicon --quiet --seq-type dna --max-mismatch 0 --primer-file ${SCRIPT_PATH}/data/primers.txt --line-width 0 --bed > $OUTDIR/${SAMPLE}.out
     if [ $? -eq 0 ]
     then
         awk -F "\t" '{ print $4 }' $OUTDIR/${SAMPLE}.out | sed 's/$/\t1/' > $OUTDIR/found.tmp
-        awk -F "\t" '{ print $1 }' $DATA/primers.txt | grep -v -f <(awk -F "\t" '{ print $1 }' $OUTDIR/found.tmp) - | sed 's/$/\t0/' > $OUTDIR/missing.tmp
+        awk -F "\t" '{ print $1 }' ${SCRIPT_PATH}/data/primers.txt | grep -v -f <(awk -F "\t" '{ print $1 }' $OUTDIR/found.tmp) - | sed 's/$/\t0/' > $OUTDIR/missing.tmp
         error=0
     else
         printf "Error: Issue when running seqkit amplicon.\n"
@@ -224,7 +217,7 @@ FIMH41=$(checkSize "fimH41" 90 100)
 
 # 
 cat $OUTDIR/all.tmp | sort -k1 | awk -F "\t" '{ print $2 }' | tr '\n' '-' | sed 's/-$/\n/' > $OUTDIR/pcr.tmp 
-grep -f $OUTDIR/pcr.tmp $DATA/profiles.txt > $OUTDIR/profile.tmp
+grep -f $OUTDIR/pcr.tmp ${SCRIPT_PATH}/data/profiles.txt > $OUTDIR/profile.tmp
 
 if [ -s $OUTDIR/profile.tmp ]
 then

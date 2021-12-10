@@ -311,7 +311,7 @@ mv $OUTDIR/*.out $OUTDIR/seqkit_outputs
 if [ -f $OUTDIR/summary.tmp ]
 then
     cat <(echo -e "Sample\tPCR_Profile_Type\tClade\tO_type\tH_type\tfimH\tDescription\tmdh36\tgyrB47\ttrpA72\trfb_O16\trfb_O25b\tfliC_H4\tfliC_H5\tfimH22\tfimH27\tfimH30\tfimH35\tfimH41\tplsB\tnupC\tkefC\trmuC\tprophage\tsbmA\tybbW\tparC_E84V") $OUTDIR/summary.tmp > $OUTDIR/summary.txt
-    rm -f $OUTDIR/summary.tmp *.tmp 
+    rm -f $OUTDIR/*.tmp 
     printf "\nAnalysis complete. See summary.txt in %s for results.\n" $OUTDIR
     exit 0
 else

@@ -67,7 +67,7 @@ while getopts 'vhci:o:r' flag; do
   esac
 done
 
-if [ $# != 6 ]
+if [ $# != 4 ]
 then
     help
     exit 1

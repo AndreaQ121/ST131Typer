@@ -83,7 +83,6 @@ Check that the dependency, SeqKit, is installed in your path:
 
 * assembly in FASTA format or directory containing multiple assemblies in FASTA format; assemblies can be in multiple contigs
 * directory to output the results into
-* directory containing both the `primers.txt` and `profiles.txt` files
 
 ### Command Line Options
 ```
@@ -94,7 +93,6 @@ Usage: ST131Typer.sh [OPTIONS] -i [FASTA or DIR] -o [DIR] -d [DIR]
 	-c		check SeqKit is in path
 	-i		fasta contigs file or directory containing multiple files
 	-o		output directory
-	-d		directory containing primers.txt and profiles.txt
   	-r    		prints citation
 ```
 
@@ -102,12 +100,12 @@ Usage: ST131Typer.sh [OPTIONS] -i [FASTA or DIR] -o [DIR] -d [DIR]
 
 Single FASTA file:
 ```
-% ./ST131Typer.sh -i data/assemblies/BS448.fasta -o example_output -d data
+% ./ST131Typer.sh -i data/assemblies/BS448.fasta -o example_output
 ```
 
 Directory containing multiple FASTA files:
 ```
-% ./ST131Typer.sh -i data/assemblies -o example_output -d data
+% ./ST131Typer.sh -i data/assemblies -o example_output
 ```
 
 Assembly FASTA files of strains representing 14 of the 15 ST131 PCR profile types described in [Johnston et al. *in prep*]() were downloaded from [EnteroBase's Escherichia/Shigella Database](https://enterobase.warwick.ac.uk/species/index/ecoli) and can be found in the `data`/`assemblies` directory. 

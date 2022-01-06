@@ -184,6 +184,6 @@ NT | Non-typable; O-type, H-type, *fimH*-type or clade could not be determined. 
 ```
 If you use ST131Typer in your work, please cite:  
 
-Brian D. Johnston, David M. Gordon, Samantha Burn, Timothy J. Johnson, Bonnie P. Weber, and James R. Johnson. Novel Multiplex PCR Method for High-Resolution Subclonal Assignment and Characterization of *Escherichia coli* Sequence Type 131 Isolates.  
+Johnston, BD, Gordon, DH, Burn, S, Johnson, TJ, Weber, BP, and Johnson, JR. Novel Multiplex PCR Method for High-Resolution Subclonal Assignment and Characterization of *Escherichia coli* Sequence Type 131 Isolates.  
 
 :link:

@@ -11,7 +11,7 @@
 
 # Current verison: 1.0.0 (December 2021)
 VERSION="ST131 Subclone Typing In Silico PCR: version 1.0.0 (December 2021)"
-CITATION="TBD"
+CITATION="Johnston, BD, Gordon, DH, Burn, S, Johnson, TJ, Weber, BP, and Johnson, JR. Novel Multiplex PCR Method for High-Resolution Subclonal Assignment and Characterization of *Escherichia coli* Sequence Type 131 Isolates."
 
 function help(){
 	printf "Usage: ST131Typer.sh [OPTIONS] -i [FASTA or DIR] -o [DIR]\n"

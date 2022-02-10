@@ -46,8 +46,6 @@ BLAST-based tools, such as those on the [Center for Genomic Epidemiology (CGE) w
 
 * [SeqKit](https://bioinf.shenwei.me/seqkit/) (>= v0.14.0)
     * Go to SeqKit's [Installation Page](https://github.com/shenwei356/seqkit#installation) for install options.
-* `primers.txt` file located in the [data directory](https://github.com/JohnsonSingerLab/ST131Typer/tree/main/data)
-* `profiles.txt` file located in the [data directory](https://github.com/JohnsonSingerLab/ST131Typer/tree/main/data)
 
 ## Installation
 
@@ -184,6 +182,6 @@ NT | Non-typable; O-type, H-type, *fimH*-type or clade could not be determined. 
 ```
 If you use ST131Typer in your work, please cite:  
 
-Johnston, BD, Gordon, DH, Burn, S, Johnson, TJ, Weber, BP, and Johnson, JR. Novel Multiplex PCR Method for High-Resolution Subclonal Assignment and Characterization of *Escherichia coli* Sequence Type 131 Isolates.  
+Johnston, BD, Gordon, DH, Burn, S, Johnson, TJ, Weber, BP, Miller, EA, and Johnson, JR. Novel Multiplex PCR Method for High-Resolution Subclonal Assignment and Characterization of *Escherichia coli* Sequence Type 131 Isolates.  
 
 :link:

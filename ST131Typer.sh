@@ -9,9 +9,9 @@
 # 2) Compare in silico PCR results to PCR profiles in data/profiles.txt
 # 3) Report results to [OUTDIR]/summary.txt
 
-# Current verison: 1.0.0 (December 2021)
-VERSION="ST131 Subclone Typing In Silico PCR: version 1.0.0 (December 2021)"
-CITATION="Johnston, BD, Gordon, DH, Burn, S, Johnson, TJ, Weber, BP, and Johnson, JR. Novel Multiplex PCR Method for High-Resolution Subclonal Assignment and Characterization of *Escherichia coli* Sequence Type 131 Isolates."
+# Current verison: 1.0.0 (Feb 2022)
+VERSION="ST131 Subclone Typing In Silico PCR: version 1.0.0 (Feb 2022)"
+CITATION="Johnston, BD, Gordon, DH, Burn, S, Johnson, TJ, Weber, BP, Miller, EA, and Johnson, JR. Novel Multiplex PCR Method for High-Resolution Subclonal Assignment and Characterization of *Escherichia coli* Sequence Type 131 Isolates."
 
 function help(){
 	printf "Usage: ST131Typer.sh [OPTIONS] -i [FASTA or DIR] -o [DIR]\n"
@@ -231,9 +231,9 @@ then
     printf "$SAMPLE\t$TYPE\t$CLADE\t$O\t$H\t$fimH\t$NOTE\t$MDH36\t$GYRB47\t$TRPA72\t$RFB_O16\t$RFB_O25B\t$FLIC_H4\t$FLIC_H5\t$FIMH22\t$FIMH27\t$FIMH30\t$FIMH35\t$FIMH41\t$PLSB\t$NUPC\t$KEFC\t$RMUC\t$PRO\t$SBMA\t$YBBW\t$PARC\n" >> $OUTDIR/summary.tmp
     continue
 else
-    printf "Warning: %s does not match a defined ST131 PCR profile type. Data review is recommended.\n" $SAMPLE
+    printf "Warning: %s does not match a defined ST131 PCR profile type. An additional typing method, such as the Center for Genomic Epidemiology tools, is recommended.\n" $SAMPLE
     TYPE="Unknown"
-    NOTE="Non-match profile type. Data review is recommended."
+    NOTE="Non-match profile type. An additional typing method, such as the Center for Genomic Epidemiology tools, is recommended."
 # O-type
     if grep -Eq "rfb_O16" $OUTDIR/found.tmp && ! grep -Eq "rfb_O25b" $OUTDIR/found.tmp
     then
@@ -243,7 +243,7 @@ else
         O="O25b"
     elif ! grep -Eq "rfb_O16" $OUTDIR/found.tmp && ! grep -Eq "rfb_O25b" $OUTDIR/found.tmp
     then
-        O="NT"
+        O="NT; no rfb variant found"
     elif grep -Eq "rfb_O16" $OUTDIR/found.tmp && grep -Eq "rfb_O25b" $OUTDIR/found.tmp
     then
         O="NT; both O16 and O25b found"
@@ -257,7 +257,7 @@ else
         H="H5"
     elif ! grep -Eq "fliC_H4" $OUTDIR/found.tmp && ! grep -Eq "fliC_H5" $OUTDIR/found.tmp
     then
-        H="NT"
+        H="NT; no fliC allele found"
     elif grep -Eq "fliC_H4" $OUTDIR/found.tmp && grep -Eq "fliC_H5" $OUTDIR/found.tmp
     then
         H="NT; both H4 and H5 found"

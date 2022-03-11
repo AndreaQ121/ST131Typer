@@ -111,13 +111,13 @@ Assembly FASTA files of strains representing 14 of the 15 ST131 PCR profile type
 PCR Type | Representative Strain | Clade | O:H Type | *fimH* Allele | Description
 ---------|---------|---------|---------|---------|---------
 1 | MVAST020 | A | O16:H5 | *H*41 | *H*41 / A (O16:H4 variant)
-2 | M670745 | A | O25b:H5 | *H*41 | *H*41 / A (O25b:H5 variant)
-3 | BS488 | A | O25b:H4 | *H*41 | *H*41 / A (O25b:H4 variant)
+2 | BS488 | A | O25b:H4 | *H*41 | *H*41 / A (O25b:H4 variant)
+3 | M670745 | A | O25b:H5 | *H*41 | *H*41 / A (O25b:H5 variant)
 4 | H17 | B0 | O25b:H4 | *H*27 | *H*27 / B0
 5 | JJ1897 | B0 | O25b:H4 | *H*22 | *H*22 / B0
 6 | JJ1969 | B1 | O25b:H4 | *H*22 | *H*22 / B1
-7 | G199 | B1 | O25b:H4 | *H*30 | *H*30 / B1
-8 | ZH071 | B1 | O25b:H4 | *H*94 | *H*94 (non-*H*22) / B1
+7 | ZH071 | B1 | O25b:H4 | *H*94 | *H*94 (non-*H*22) / B1
+8 | G199 | B1 | O25b:H4 | *H*30 | *H*30 / B1
 9 | CD306 | C0 | O25b:H4 | *H*30 | *H*30S / C0
 10 | BS448 | C0 | O25b:H4 | *H*30 | *H*30S / C0 (*parC* E84V and FQ-R)
 11 | JJ2193 | C1 | O25b:H4 | *H*30 | *H*30R1 non-C1-M27 / C1
